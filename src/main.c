@@ -41,13 +41,13 @@ int main() {
     struct sockaddr peerAddr;
     socklen_t peerAddrLen;
 
-    // loop for 25 packets
-    for (int packetIdx = 0; packetIdx < 50; packetIdx++) {
+    // loop for 500 packets
+    for (int packetIdx = 0; packetIdx < 500; packetIdx++) {
         // get one packet
         int len = recvfrom(sock, buf, BUF_SIZE, 0, &peerAddr, &peerAddrLen);
         if (len < 0) {
             error("recvfrom error");
-            return 1;
+            continue;
         }
 
         char logStr[256];
